@@ -1,0 +1,45 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .banner {
+    width: 100%;
+  }
+
+  .container-logo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    // margin-right: 5%;
+
+    .logo {
+      margin-top: 15px;
+      width: 100%;
+    }
+
+    span {
+      margin-top: 15px;
+      font-size: 30px;
+    }
+  }
+
+  // .container-account {
+  //   button {
+  //     background-color: #02a9e0;
+  //     border: none;
+  //     color: white;
+  //     font-weight: bold;
+  //     padding: 20px;
+  //     text-align: center;
+  //     text-decoration: none;
+  //     display: inline-block;
+  //     font-size: 16px;
+  //     margin: 30px 2px;
+  //     border-radius: 20px;
+  //     cursor: pointer;
+  //   }
+  // }
+}
