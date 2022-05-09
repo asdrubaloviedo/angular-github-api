@@ -11,7 +11,8 @@ export class AppComponent implements OnInit {
   // Connection
   loadAccount: boolean = false;
   loadHistory: boolean = false;
-  commitsArray: any = [];
+  commitsBackArray: any = [];
+  commitsFrontArray: any = [];
 
   // Data
   accounInfo: any;
@@ -22,7 +23,8 @@ export class AppComponent implements OnInit {
     this.loadAccount = false;
     this.loadHistory = false;
     this.getGitAccountInfo();
-    this.getGitHistory();
+    this.getGitHistory('nestJs-github-api');
+    this.getGitHistory('angular-github-api');
   }
 
   getGitAccountInfo(){
@@ -47,17 +49,25 @@ export class AppComponent implements OnInit {
     });
   }
 
-  getGitHistory(){
+  getGitHistory(repo: string){
     this.loadHistory = false;
 
-    this.appService.getGitHistoryList()
+    this.appService.getGitHistoryList(repo)
     .subscribe(async(info:any) => {
         // console.log('GitHistory :>> ', info);
-        this.commitsArray = info;
-        this.commitsArray = this.commitsArray.map((element) => {
-          element.date = moment(element.date).format('DD-MM-YYYY');
-          return element;
-        })
+        if(repo === 'nestJs-github-api') {
+          this.commitsBackArray = info;
+          this.commitsBackArray = this.commitsBackArray.map((element) => {
+            element.date = moment(element.date).format('DD-MM-YYYY');
+            return element;
+          })
+        } else {
+          this.commitsFrontArray = info;
+          this.commitsFrontArray = this.commitsFrontArray.map((element) => {
+            element.date = moment(element.date).format('DD-MM-YYYY');
+            return element;
+          })
+        }
         this.loadHistory = true;
     }, async (err) => {
         console.log('err :>> ', err);

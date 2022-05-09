@@ -30,9 +30,9 @@ export class AppService {
     return aux;
   }
 
-  getGitHistoryList() : Observable<any>{
+  getGitHistoryList(repo: string) : Observable<any>{
     let aux = this.http
-      .get(`http://localhost:3333/git/asdrubaloviedo/nestJs-github-api`)
+      .get(`http://localhost:3333/git/asdrubaloviedo/${repo}`)
       .pipe(
         map((data) => {
           return data;

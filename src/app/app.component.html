@@ -27,14 +27,29 @@
     </table>
   </div>
   <div class="container-mid last">
-    <span class="title">Git History</span>
+    <span class="title">Git Back History</span>
     <table id="customers" *ngIf="loadHistory">
       <tr>
         <th>Author</th>
         <th>Date</th>
         <th>Message</th>
       </tr>
-      <tr *ngFor="let commit of commitsArray">
+      <tr *ngFor="let commit of commitsBackArray">
+        <td>{{ commit.author }}</td>
+        <td>{{ commit.date }}</td>
+        <td>{{ commit.message }}</td>
+      </tr>
+    </table>
+  </div>
+  <div class="container-mid last">
+    <span class="title">Git Front History</span>
+    <table id="customers" *ngIf="loadHistory">
+      <tr>
+        <th>Author</th>
+        <th>Date</th>
+        <th>Message</th>
+      </tr>
+      <tr *ngFor="let commit of commitsFrontArray">
         <td>{{ commit.author }}</td>
         <td>{{ commit.date }}</td>
         <td>{{ commit.message }}</td>
