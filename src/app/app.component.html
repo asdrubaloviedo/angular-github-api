@@ -34,20 +34,10 @@
         <th>Date</th>
         <th>Message</th>
       </tr>
-      <tr>
-        <td>Asdrubal Oviedo</td>
-        <td>2022-05-08T19:36:10Z</td>
-        <td>commit data formatting</td>
-      </tr>
-      <tr>
-        <td>Asdrubal Oviedo</td>
-        <td>2022-05-08T19:36:10Z</td>
-        <td>api tap data</td>
-      </tr>
-      <tr>
-        <td>Asdrubal Oviedo</td>
-        <td>2022-05-08T19:36:10Z</td>
-        <td>profile object fix</td>
+      <tr *ngFor="let commit of commitsArray">
+        <td>{{ commit.author }}</td>
+        <td>{{ commit.date }}</td>
+        <td>{{ commit.message }}</td>
       </tr>
     </table>
   </div>
